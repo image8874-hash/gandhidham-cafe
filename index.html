@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Chai Kemistri: The best Turkish fusion cafe in Adipur, Gandhidham. Enjoy our signature Kulhad Chai, Kulhad Pizza, and a cozy ambience perfect for friends and family.">
+<title>Chai Kemistri | Best Cafe in Adipur, Gandhidham</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{background:#0b0b0b;color:#fff;overflow-x:hidden;}
+
+header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 50px;background:rgba(0,0,0,0.5);
+  position:sticky;top:0;backdrop-filter:blur(15px);z-index:1000;
+}
+
+.logo{display:flex;align-items:center;gap:10px;}
+.logo img{height:45px;width:45px;border-radius:50%;}
+.logo span{font-size:22px;font-weight:700;color:#d4a373;}
+
+nav a{margin-left:25px;text-decoration:none;color:#ccc;font-size:14px;transition:0.3s;}
+nav a:hover{color:#d4a373;}
+
+/* Floating Instagram Button */
+.insta-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  z-index: 2000;
+  transition: 0.3s;
+}
+.insta-float:hover { transform: scale(1.1) rotate(5deg); }
+
+.hero{
+  height:100vh;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;text-align:center;position:relative;padding: 0 20px;
+  background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') center/cover;
+}
+
+.hero img{
+  width:130px;height:130px;border-radius:50%;
+  margin-bottom:20px;animation:float 4s ease-in-out infinite;
+  box-shadow:0 0 25px rgba(212,163,115,0.6);
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0);} 
+  50%{transform:translateY(-15px);} 
+}
+
+.hero h1{font-size:65px;color:#d4a373;letter-spacing:2px;animation:fadeUp 1s ease forwards;}
+.hero p{margin:20px 0;font-size:18px;max-width:600px;color:#ccc;animation:fadeUp 1.5s ease forwards;}
+
+.btn{
+  padding:14px 35px;
+  background:linear-gradient(45deg,#d4a373,#faedcd);
+  color:#000;border:none;border-radius:40px;
+  cursor:pointer;font-weight:600;
+  transition:0.3s;
+  box-shadow:0 0 20px rgba(212,163,115,0.5);
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-insta { background: linear-gradient(45deg, #f09433, #dc2743); color: #fff; }
+.btn:hover{transform:scale(1.1);}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px);} 
+  to{opacity:1;transform:translateY(0);} 
+}
+
+.section{padding:80px 50px;}
+.section h2{text-align:center;margin-bottom:50px;color:#d4a373;font-size:32px;}
+
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;}
+.card{
+  background:#141414;padding:15px;border-radius:20px;overflow:hidden;
+  transition:0.4s;box-shadow:0 0 25px rgba(0,0,0,0.6);
+}
+.card:hover{transform:translateY(-10px); box-shadow:0 0 30px rgba(212,163,115,0.4);}
+.card img{width:100%;height:180px;object-fit:cover;border-radius:15px;}
+.card h3{margin:12px 0 5px;}
+.card p{font-size:14px;color:#aaa;}
+
+.gallery{display:flex;flex-direction:column;gap:40px;}
+.gallery-item{display:flex;align-items:center;gap:30px;}
+.gallery-item.reverse{flex-direction:row-reverse;}
+.gallery-item img{width:50%;height:250px;object-fit:cover;border-radius:20px;}
+.gallery-text{width:50%;}
+.gallery-text h3{color:#d4a373;margin-bottom:10px;}
+
+.review-slider{overflow:hidden;position:relative;}
+.review-track{display:flex;gap:20px;width:max-content;animation:slideReviews 25s linear infinite;}
+.review-card{
+  min-width:320px;background:#141414;padding:20px;border-radius:15px;
+  text-align:center;box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+.stars{color:#facc15;margin-bottom:8px;}
+
+@keyframes slideReviews{
+  0%{transform:translateX(0);} 
+  100%{transform:translateX(-50%);} 
+}
+
+.faq-container{max-width:800px;margin:auto;}
+.faq-item{border-bottom:1px solid #333;padding:15px 0;cursor:pointer;}
+.faq-question{color:#d4a373;font-weight:600;position:relative;}
+.faq-question::after{content:'+';position:absolute;right:0;}
+.faq-item.active .faq-answer{max-height:200px;margin-top:10px;}
+.faq-answer{max-height:0;overflow:hidden;color:#ccc;transition:0.4s ease;}
+
+.footer{text-align:center;padding:25px;background:#000;margin-top:50px;color:#777;}
+
+@media(max-width:768px){
+  header { padding: 15px 20px; flex-direction: column; gap: 10px; }
+  nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  nav a { margin: 0 5px; font-size: 12px; }
+  .hero h1 { font-size: 38px; }
+  .gallery-item, .gallery-item.reverse { flex-direction: column; text-align: center; }
+  .gallery-item img, .gallery-text { width: 100%; }
+}
+</style>
+</head>
+
+<body>
+
+<a href="https://instagram.com/chaikemistri" target="_blank" class="insta-float">
+  <svg width="30" height="30" fill="white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+</a>
+
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="Chai Kemistri Logo">
+    <span>Chai Kemistri</span>
+  </div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#menu">Menu</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#about">About</a>
+    <a href="https://instagram.com/chaikemistri" target="_blank" style="color:#d4a373;">Follow Us</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <img src="logo.png" alt="Chai Kemistri Logo">
+  <h1>Chai Kemistri</h1>
+  <p>The Turkish Fusion Cafe • Where tradition meets modern taste</p>
+  <div id="status" class="btn" style="cursor:default;">Checking Status...</div>
+</section>
+
+<section class="section" id="menu">
+  <h2>Our Specials</h2>
+  <div class="menu">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Kulhad Chai">
+      <h3>Kulhad Chai</h3>
+      <p>Authentic & aromatic traditional chai.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1594007654729-407eedc4be65" alt="Kulhad Pizza">
+      <h3>Kulhad Pizza</h3>
+      <p>Fusion pizza with cheesy goodness.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1604908177522-402f34f56e5c" alt="Pasta">
+      <h3>Pasta</h3>
+      <p>Creamy & delicious modern classic.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Loaded Fries">
+      <h3>Loaded Fries</h3>
+      <p>Crispy fries with toppings & sauces.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="gallery">
+  <h2>Our Gallery</h2>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5" alt="Cozy Ambience">
+      <div class="gallery-text">
+        <h3>Cozy Ambience</h3>
+        <p>Experience warm lighting and relaxing vibes perfect for friends & family.</p>
+      </div>
+    </div>
+    <div class="gallery-item reverse">
+      <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814" alt="Perfect Hangout">
+      <div class="gallery-text">
+        <h3>Perfect Hangout</h3>
+        <p>A place where conversations flow as smoothly as our chai.</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Delicious Moments">
+      <div class="gallery-text">
+        <h3>Delicious Moments</h3>
+        <p>Every dish is crafted to create unforgettable memories.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="founder">
+  <h2>Meet The Founder</h2>
+  <div style="display:flex; align-items:center; gap:40px; flex-wrap:wrap; justify-content:center;">
+    <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Founder Portrait" style="width:220px; height:220px; object-fit:cover; border-radius:20px; box-shadow:0 0 25px rgba(0,0,0,0.6);">
+    <div style="max-width:500px; color:#ccc;">
+      <h3 style="color:#d4a373; margin-bottom:10px;">Founder Name</h3>
+      <p style="margin-bottom:15px;">Chai Kemistri was founded with a vision to create more than just a cafe — a place where people connect, relax, and enjoy unique flavors. Inspired by traditional chai culture and modern fusion ideas, the journey started with a passion to serve something different.</p>
+      <p>"Our goal is simple — to give every customer a memorable experience with great taste, great vibe, and great service."</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <h2>About Us</h2>
+  <div class="about" style="text-align:center; max-width:800px; margin:auto;">
+    <p><b>Chai Kemistri</b> is not just a cafe — it’s an experience where tradition meets modern fusion. From our signature kulhad chai to innovative snacks, we bring a unique taste you won’t find anywhere else.</p>
+    <div style="margin-top:25px; text-align:left; display:inline-block;">
+      <h3 style="color:#d4a373; margin-bottom:10px;">Why Choose Us?</h3>
+      <p>✔ Premium quality ingredients & hygiene</p>
+      <p>✔ Unique fusion menu (Kulhad Pizza, Turkish Chai & more)</p>
+      <p>✔ Cozy ambience perfect for friends & hangouts</p>
+      <p>✔ Fast service & friendly staff</p>
+      <p>✔ Instagram-worthy vibes & aesthetic space</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <h2>Visit Us</h2>
+  <div class="about" style="text-align:center;">
+    <p style="color:#d4a373; font-weight:600; font-size:18px; margin-bottom:10px;">📍 Shop No. 12, Main Road, Adipur, Gandhidham, Gujarat</p>
+    <p>Open Daily • 10AM - 11PM</p>
+    <div style="margin-top:20px; display:flex; flex-wrap:wrap; gap:15px; justify-content:center;">
+      <a href="tel:+910000000000" class="btn">📞 Call Now</a>
+      <a href="https://wa.me/910000000000" target="_blank" class="btn">💬 WhatsApp</a>
+      <a href="https://instagram.com/chaikemistri" target="_blank" class="btn btn-insta">📸 Follow on Instagram</a>
+      <a href="https://maps.google.com/?q=Chai+Kemistri+Adipur+Gandhidham" target="_blank" class="btn" style="background: #4285F4; color: white;">🌏 Open in Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<div style="display:flex; flex-wrap:wrap; gap:15px; justify-content:center; padding: 0 20px; margin-bottom:40px;">
+  <div class="card" style="max-width:180px; text-align:center;">
+    <h3><span class="counter" data-target="1500">0</span>+</h3>
+    <p style="font-size:12px;">Happy Customers</p>
+  </div>
+  <div class="card" style="max-width:180px; text-align:center;">
+    <h3><span class="counter" data-target="50">0</span>+</h3>
+    <p style="font-size:12px;">Menu Items</p>
+  </div>
+  <div class="card" style="max-width:180px; text-align:center;">
+    <h3><span class="counter" data-target="3">0</span>+</h3>
+    <p style="font-size:12px;">Years of Experience</p>
+  </div>
+  <div class="card" style="max-width:180px; text-align:center;"><h3>✔ Hygienic</h3></div>
+  <div class="card" style="max-width:180px; text-align:center;"><h3>🔥 Fresh</h3></div>
+  <div class="card" style="max-width:180px; text-align:center;"><h3>⭐ 4.8 Rating</h3></div>
+</div>
+
+<section class="section" id="reviews">
+  <h2>Customer Reviews</h2>
+  <div class="review-slider">
+    <div class="review-track">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Best chai in town! Amazing vibe and friendly staff."</p>
+        <h4>- Rohan Mehta</h4>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Kulhad pizza is a must try. Totally unique experience."</p>
+        <h4>- Priya Shah</h4>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Chai Kemistri never disappoints!"</p>
+        <h4>- Kunal Desai</h4>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Best chai in town!"</p>
+        <h4>- Rohan Mehta</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <h2>FAQs</h2>
+  <div class="faq-container">
+    <div class="faq-item">
+      <div class="faq-question">Do you use fresh ingredients?</div>
+      <div class="faq-answer">Yes, we use high-quality fresh ingredients to maintain taste and hygiene.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Is your cafe suitable for groups?</div>
+      <div class="faq-answer">Absolutely! Our space is designed for friends, families, and group hangouts.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Do you reuse Kulhad?</div>
+      <div class="faq-answer">No, every kulhad is single-use to ensure cleanliness and safety.</div>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  <p>© 2026 Chai Kemistri • Premium Experience</p>
+</div>
+
+<script>
+function updateStatus(){
+  const now = new Date();
+  const hours = now.getHours();
+  const statusEl = document.getElementById('status');
+  if(hours >= 10 && hours < 23) {
+    statusEl.innerText = "🟢 Open Now";
+    statusEl.style.background = "linear-gradient(45deg,#6ee7b7,#34d399)";
+  } else {
+    statusEl.innerText = "🔴 Closed Now";
+    statusEl.style.background = "linear-gradient(45deg,#f87171,#ef4444)";
+  }
+}
+updateStatus();
+
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter => {
+  const update = () => {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText;
+    if(count < target){
+      counter.innerText = Math.ceil(count + (target/50));
+      setTimeout(update, 30);
+    } else { counter.innerText = target; }
+  };
+  update();
+});
+
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.addEventListener('click', () => item.classList.toggle('active'));
+});
+</script>
+</body>
+</html>
