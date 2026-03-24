@@ -10,7 +10,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
-body{background:#0b0b0b;color:#fff;overflow-x:hidden;}
+body{background:#0b0b0b;color:#fff;overflow-x:hidden;scroll-behavior:smooth;}
 
 header{
   display:flex;justify-content:space-between;align-items:center;
@@ -41,28 +41,30 @@ nav a:hover{color:#d4a373;}
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
   z-index: 2000;
   transition: 0.3s;
+  will-change: transform;
 }
 .insta-float:hover { transform: scale(1.1) rotate(5deg); }
 
 .hero{
   height:100vh;display:flex;align-items:center;justify-content:center;
   flex-direction:column;text-align:center;position:relative;padding: 0 20px;
-  background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') center/cover;
+  background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') center/cover no-repeat;
 }
 
 .hero img{
   width:130px;height:130px;border-radius:50%;
   margin-bottom:20px;animation:float 4s ease-in-out infinite;
   box-shadow:0 0 25px rgba(212,163,115,0.6);
+  will-change: transform;
 }
 
 @keyframes float{
   0%,100%{transform:translateY(0);} 
-  50%{transform:translateY(-15px);} 
+  50%{transform:translateY(-5px);} 
 }
 
-.hero h1{font-size:65px;color:#d4a373;letter-spacing:2px;animation:fadeUp 1s ease forwards;}
-.hero p{margin:20px 0;font-size:18px;max-width:600px;color:#ccc;animation:fadeUp 1.5s ease forwards;}
+.hero h1{font-size:65px;color:#d4a373;letter-spacing:2px;animation:fadeUp 1s ease forwards;will-change: transform, opacity;}
+.hero p{margin:20px 0;font-size:18px;max-width:600px;color:#ccc;animation:fadeUp 1.5s ease forwards;will-change: transform, opacity;}
 
 .btn{
   padding:14px 35px;
@@ -73,12 +75,13 @@ nav a:hover{color:#d4a373;}
   box-shadow:0 0 20px rgba(212,163,115,0.5);
   text-decoration: none;
   display: inline-block;
+  will-change: transform;
 }
 .btn-insta { background: linear-gradient(45deg, #f09433, #dc2743); color: #fff; }
-.btn:hover{transform:scale(1.1);}
+.btn:hover{transform:scale(1.05);}
 
 @keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px);} 
+  from{opacity:0;transform:translateY(20px);} 
   to{opacity:1;transform:translateY(0);} 
 }
 
@@ -88,25 +91,26 @@ nav a:hover{color:#d4a373;}
 .menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;}
 .card{
   background:#141414;padding:15px;border-radius:20px;overflow:hidden;
-  transition:0.4s;box-shadow:0 0 25px rgba(0,0,0,0.6);
+  transition:0.3s;box-shadow:0 0 15px rgba(0,0,0,0.4);
+  will-change: transform;
 }
-.card:hover{transform:translateY(-10px); box-shadow:0 0 30px rgba(212,163,115,0.4);}
+.card:hover{transform:translateY(-5px); box-shadow:0 0 20px rgba(212,163,115,0.3);}
 .card img{width:100%;height:180px;object-fit:cover;border-radius:15px;}
 .card h3{margin:12px 0 5px;}
 .card p{font-size:14px;color:#aaa;}
 
 .gallery{display:flex;flex-direction:column;gap:40px;}
-.gallery-item{display:flex;align-items:center;gap:30px;}
+.gallery-item{display:flex;align-items:center;gap:30px;flex-wrap:wrap;}
 .gallery-item.reverse{flex-direction:row-reverse;}
 .gallery-item img{width:50%;height:250px;object-fit:cover;border-radius:20px;}
-.gallery-text{width:50%;}
+.gallery-text{width:50%;flex:1;}
 .gallery-text h3{color:#d4a373;margin-bottom:10px;}
 
 .review-slider{overflow:hidden;position:relative;}
-.review-track{display:flex;gap:20px;width:max-content;animation:slideReviews 25s linear infinite;}
+.review-track{display:flex;gap:20px;width:max-content;animation:slideReviews 30s linear infinite;will-change: transform;}
 .review-card{
   min-width:320px;background:#141414;padding:20px;border-radius:15px;
-  text-align:center;box-shadow:0 0 20px rgba(0,0,0,0.5);
+  text-align:center;box-shadow:0 0 15px rgba(0,0,0,0.4);transition: transform 0.3s;
 }
 .stars{color:#facc15;margin-bottom:8px;}
 
@@ -116,11 +120,11 @@ nav a:hover{color:#d4a373;}
 }
 
 .faq-container{max-width:800px;margin:auto;}
-.faq-item{border-bottom:1px solid #333;padding:15px 0;cursor:pointer;}
+.faq-item{border-bottom:1px solid #333;padding:15px 0;cursor:pointer;transition:0.3s;}
 .faq-question{color:#d4a373;font-weight:600;position:relative;}
 .faq-question::after{content:'+';position:absolute;right:0;}
 .faq-item.active .faq-answer{max-height:200px;margin-top:10px;}
-.faq-answer{max-height:0;overflow:hidden;color:#ccc;transition:0.4s ease;}
+.faq-answer{max-height:0;overflow:hidden;color:#ccc;transition:0.3s ease;}
 
 .footer{text-align:center;padding:25px;background:#000;margin-top:50px;color:#777;}
 
@@ -143,7 +147,7 @@ nav a:hover{color:#d4a373;}
 
 <header>
   <div class="logo">
-    <img src="logo.png" alt="Chai Kemistri Logo">
+    <img src="logo.png" alt="Chai Kemistri Logo" loading="lazy">
     <span>Chai Kemistri</span>
   </div>
   <nav>
@@ -157,7 +161,7 @@ nav a:hover{color:#d4a373;}
 </header>
 
 <section class="hero" id="home">
-  <img src="logo.png" alt="Chai Kemistri Logo">
+  <img src="logo.png" alt="Chai Kemistri Logo" loading="lazy">
   <h1>Chai Kemistri</h1>
   <p>The Turkish Fusion Cafe • Where tradition meets modern taste</p>
   <div id="status" class="btn" style="cursor:default;">Checking Status...</div>
@@ -167,22 +171,22 @@ nav a:hover{color:#d4a373;}
   <h2>Our Specials</h2>
   <div class="menu">
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Kulhad Chai">
+      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Kulhad Chai" loading="lazy">
       <h3>Kulhad Chai</h3>
       <p>Authentic & aromatic traditional chai.</p>
     </div>
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1594007654729-407eedc4be65" alt="Kulhad Pizza">
+      <img src="https://images.unsplash.com/photo-1594007654729-407eedc4be65" alt="Kulhad Pizza" loading="lazy">
       <h3>Kulhad Pizza</h3>
       <p>Fusion pizza with cheesy goodness.</p>
     </div>
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1604908177522-402f34f56e5c" alt="Pasta">
+      <img src="https://images.unsplash.com/photo-1604908177522-402f34f56e5c" alt="Pasta" loading="lazy">
       <h3>Pasta</h3>
       <p>Creamy & delicious modern classic.</p>
     </div>
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Loaded Fries">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Loaded Fries" loading="lazy">
       <h3>Loaded Fries</h3>
       <p>Crispy fries with toppings & sauces.</p>
     </div>
@@ -193,21 +197,21 @@ nav a:hover{color:#d4a373;}
   <h2>Our Gallery</h2>
   <div class="gallery">
     <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5" alt="Cozy Ambience">
+      <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5" alt="Cozy Ambience" loading="lazy">
       <div class="gallery-text">
         <h3>Cozy Ambience</h3>
         <p>Experience warm lighting and relaxing vibes perfect for friends & family.</p>
       </div>
     </div>
     <div class="gallery-item reverse">
-      <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814" alt="Perfect Hangout">
+      <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814" alt="Perfect Hangout" loading="lazy">
       <div class="gallery-text">
         <h3>Perfect Hangout</h3>
         <p>A place where conversations flow as smoothly as our chai.</p>
       </div>
     </div>
     <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Delicious Moments">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Delicious Moments" loading="lazy">
       <div class="gallery-text">
         <h3>Delicious Moments</h3>
         <p>Every dish is crafted to create unforgettable memories.</p>
@@ -219,7 +223,7 @@ nav a:hover{color:#d4a373;}
 <section class="section" id="founder">
   <h2>Meet The Founder</h2>
   <div style="display:flex; align-items:center; gap:40px; flex-wrap:wrap; justify-content:center;">
-    <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Founder Portrait" style="width:220px; height:220px; object-fit:cover; border-radius:20px; box-shadow:0 0 25px rgba(0,0,0,0.6);">
+    <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Founder Portrait" style="width:220px; height:220px; object-fit:cover; border-radius:20px; box-shadow:0 0 25px rgba(0,0,0,0.6);" loading="lazy">
     <div style="max-width:500px; color:#ccc;">
       <h3 style="color:#d4a373; margin-bottom:10px;">Founder Name</h3>
       <p style="margin-bottom:15px;">Chai Kemistri was founded with a vision to create more than just a cafe — a place where people connect, relax, and enjoy unique flavors. Inspired by traditional chai culture and modern fusion ideas, the journey started with a passion to serve something different.</p>
